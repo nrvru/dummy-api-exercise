@@ -1,7 +1,7 @@
 
 var express = require('express');
 var path = require('path');
-var objectService = require('./object_service');
+var objectService = require('./new_object_service');
 var rs = require('./render_services');
 
 var app = express();

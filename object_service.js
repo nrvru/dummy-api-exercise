@@ -17,6 +17,7 @@ function buildObject(object){
     }
 
     fdb.findByName(propertiesNames, function(err, properties){
+        //console.log("Call to db");
         for(var i = 0; i < propertiesNames.length; i++){
             var propertyName = propertiesNames[i];
 
