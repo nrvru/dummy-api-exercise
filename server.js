@@ -27,6 +27,11 @@ app.get('/:object_name_url' , function(req, res){
     });
 });
 
+app.use(function (req, res) {
+    res.status(404);
+    res.render('error');
+});
+
 var port = 3000;
 app.listen(port, function(){
     console.log('Listening on port: ' + port);
