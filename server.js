@@ -23,7 +23,7 @@ app.get('/:object_name_url' , function(req, res){
             return;
         }
 
-        res.render('index', {title: 'Object', renderedObject: rs.renderObject(object)});
+        res.render('index', {title: 'Object', renderedObject: rs.renderObject(object), object: object});
     });
 });
 

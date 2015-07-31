@@ -1,7 +1,19 @@
+/*First variant - rendering on server*/
+/*li {*/
+    /*list-style-type: none;*/
+/*}*/
+/*li.main:before {*/
+    /*content: "- ";*/
+/*}*/
 
-li {
-    list-style-type: none;
+/*Second variant - Use React for rendering on client*/
+
+.object{
+    margin-left: 40px;
+    margin-top: 5px;
 }
-li.main:before {
-    content: "- ";
+
+.object--name{
+    font-size: 120%;
+    font-style: italic;
 }

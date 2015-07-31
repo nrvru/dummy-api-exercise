@@ -1,8 +1,13 @@
 extends layout
 
 block content
-    h1 Objects list
-    pre!= renderedObject
+    //-h1 Objects list
+    //-pre!= renderedObject
+
+    div#app
+    script#data(type="application/json").
+        !{JSON.stringify(object)}
+    script(type="text/jsx", src="/js/app.jsx")
 
 
 
