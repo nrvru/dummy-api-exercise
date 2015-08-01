@@ -1,8 +1,7 @@
 
 var express = require('express');
 var path = require('path');
-var objectService = require('./new_object_service');
-var rs = require('./render_services');
+var objectService = require('./services/object_service');
 
 var app = express();
 
@@ -16,20 +15,20 @@ app.set('view engine', 'jade');
 app.get('/:object_name_url' , function(req, res){
     var objectNameUrl = req.params.object_name_url;
 
-    objectService.getObject(objectNameUrl, function(err, object){
+    objectService.getObjectByNameUrl(objectNameUrl, function(err, object){
         if(err){
             res.status(404);
             res.render('error', {pageTitle: 'Error'});
             return;
         }
 
-        res.render('index', {title: 'Object', renderedObject: rs.renderObject(object), object: object});
+        res.render('index', {pageTitle: 'Object', object: object});
     });
 });
 
 app.use(function (req, res) {
     res.status(404);
-    res.render('error');
+    res.render('error', {pageTitle: 'Error'});
 });
 
 var port = 3000;

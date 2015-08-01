@@ -1,6 +1,6 @@
 
 var _ = require('lodash');
-var fdb = require('./fake_db');
+var fdb = require('../data/fake_db');
 
 var rawObject;
 
@@ -19,7 +19,6 @@ function getProperties(objects, cb){
     var embeddedObjects = [];
 
     fdb.findByName(properties, function(err, data){
-        //console.log("Call to DB");
         _.forEach(objects, function(object){
             _.forEach(object.properties, function(value, key){
 
@@ -45,7 +44,7 @@ function getProperties(objects, cb){
 }
 
 
-function getObject(objectNameUrl, cb){
+function getObjectByNameUrl(objectNameUrl, cb){
     fdb.findByNameUrl([objectNameUrl], function(err, data){
         if(err || !data[0]) {
             cb(err || 'Object not found');
@@ -57,4 +56,4 @@ function getObject(objectNameUrl, cb){
     })
 }
 
-module.exports.getObject = getObject;
+module.exports.getObjectByNameUrl = getObjectByNameUrl;
